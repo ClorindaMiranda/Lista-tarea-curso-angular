@@ -8,7 +8,7 @@ export class TaskService {
   private localStorageKey = 'lista de tareas';
 
   getTasks(): string []{
-    return JSON.parse(localStorage.getItem(this.localStorageKey) as string) || [];
+    return JSON.parse(localStorage.getItem(this.localStorageKey) as string) || [];  //getitem para traerlo del localstore
   }
 
   addTask(task : string){

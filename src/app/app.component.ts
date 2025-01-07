@@ -13,24 +13,24 @@ import { TaskService } from './services/task.service';
 export class AppComponent implements OnInit {
   title = 'ListaTareasApp';
 
-  ListTask:string[] = [];
+  listTask:string[] = [];
   newTask :string = '';
 
   
   private _taskService = inject(TaskService);
 
   ngOnInit(): void {
-    this.ListTask = this._taskService.getTasks();
+    this.listTask = this._taskService.getTasks();
   }
 
   addTask(){
     this._taskService.addTask(this.newTask);      //agregamos una nueva tarea
     this.newTask= '';                                //vaceamos el input
-    this.ListTask = this._taskService.getTasks();   //volvemos a traer la lista de tarea
+    this.listTask = this._taskService.getTasks();   //volvemos a traer la lista de tarea
   }
   deleteTask(index: number){
     this._taskService.deleteTask(index);
-    this.ListTask = this._taskService.getTasks();
+    this.listTask = this._taskService.getTasks();       //le pasamos el get para qe nos actualice la inf
   }
   }
 
